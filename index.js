@@ -65,16 +65,15 @@ function myReduce(collection, callback, acc) {
 // const callback = (acc, val, collection) => (acc + (val * 3))
 // myReduce([1, 2, 3, 4], callback, 10)
 
-// function myFind(collection, predicate) {
-//     let newCollection = standardizeInput(collection)
+function myFind(collection, predicate) {
+    let newCollection = standardizeInput(collection)
 
-
-for (const element of newCollection) {
-    if (predicate(element)) {
-        return element
+    for (const element of newCollection) {
+        if (predicate(element)) {
+            return element
+        }
     }
 }
-
 
 function myFilter(collection, predicate) {
     let newCollection = standardizeInput(collection)
@@ -121,25 +120,43 @@ function myLast(collection, n = false) {
     let newCollection = standardizeInput(collection)
 
     if (n) {
-        return newCollection.slice
+        return newCollection.slice(newCollection.length - n, newCollection.length)
     } else {
-        return newCollection[0]
+        return newCollection[newCollection.length - 1]
     }
-
 }
 
 
 // Don't use the top function, not applicable here, and we know they will be referring to objects
+
+let obj = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: 4
+}
 function myKeys(obj) {
 
-    for (let i = 0; i <= n; i++) {
-        return obj[0]
-        if (i % 2 === 0) {
-            return obj[i]
-        }
+    const keys = []
+
+    // use a for loop to get a key within the object
+    for (let key in obj) {
+
+        keys.push(key)
+
     }
+    return keys
 }
 
-function myValues() {
+function myValues(obj) {
+    const values = []
+
+    // use a for loop to get a key within the object
+    for (let key in obj) {
+
+        values.push(obj[key])
+
+    }
+    return values
 
 }
