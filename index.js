@@ -31,22 +31,23 @@ function myMap(collection, callback) {
 function myReduce(collection, callback, acc) {
     let newCollection = standardizeInput(collection)
 
-    let results;
+    // acc ? results = acc : results = newCollection[0];
 
-    acc ? results = acc : results = 0;
-    console.log("RESULTS BEFORE FOR LOOP " + results)
-    let x = 0
+    if (!acc) {
+        acc = newCollection[0]
+        newCollection = newCollection.shift()
+    }
+    console.log(acc)
+
 
     for (let i = 0; i < newCollection.length; i++) {
 
-
-        let result = callback(acc, newCollection[i], newCollection)
-        console.log(result)
-        results += result
-
+        acc = callback(acc, newCollection[i], newCollection)
+        console.log("ACC in the FOR loop " + acc)
     }
-    console.log("END OF FOR LOOP " + results)
-    return results
+
+    return acc
+
 
 }
 
