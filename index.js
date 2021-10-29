@@ -74,7 +74,7 @@ for (const element of newCollection) {
         return element
     }
 }
-}
+
 
 function myFilter(collection, predicate) {
     let newCollection = standardizeInput(collection)
@@ -106,24 +106,22 @@ function mySize(collection) {
 
 
 
-function myFirst(collection, n) {
+function myFirst(collection, n = false) {
     let newCollection = standardizeInput(collection)
 
-    if (!n) {
-        return newCollection[0]
+    if (n) {
+        return newCollection.slice(0, n)
     } else {
-        for (let i = 0; i <= n; i++) {
-            return newCollection[i]
-        }
+        return newCollection[0]
     }
 
 }
 
-function myLast(collection, n) {
+function myLast(collection, n = false) {
     let newCollection = standardizeInput(collection)
 
-    if (!!n) {
-        return newCollection[0]
+    if (n) {
+        return newCollection.slice
     } else {
         return newCollection[0]
     }
